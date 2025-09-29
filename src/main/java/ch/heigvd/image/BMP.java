@@ -101,4 +101,25 @@ public class BMP {
             throw new RuntimeException(e);
         }
     }
+
+    public void appliesBlackWhiteFilter() {
+        this.pixelGrid = pixelGrid.appliesBlackWhiteFilter();
+    }
+
+    public void appliesGaussianFilter() {
+        for (int i = 0; i < 50; i++) {
+            this.pixelGrid = pixelGrid.appliesGaussianFilter();
+        }
+    }
+
+    public void applies90DegreeRotation() {
+        this.pixelGrid = this.pixelGrid.applies90DegreeRotation();
+        int tempo = biHeight;
+        biHeight = biWidth;
+        biWidth = tempo;
+        metaByteSizeRow = (this.biWidth * 3 + 3) / 4 * 4;
+        biSizeImage = this.metaByteSizeRow * this.biHeight;
+        bhSize = this.bhOffBits + this.biSizeImage;
+        metaPadding = this.metaByteSizeRow - this.biWidth * 3;
+    }
 }
