@@ -12,18 +12,33 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
+        String source = "rondoudou.bmp";
+        String destination = "rondudou-copy.bmp";
+
         try {
-            FileInputStream fis =  new FileInputStream("rondoudou.bmp");
+            // ouverture du input stream pour lire l'image
+            FileInputStream fis =  new FileInputStream("IOFile/" + source);
             BufferedInputStream bis = new BufferedInputStream(fis);
 
+            // copie l'image dans l'objet BMP
             BMP bmp = new BMP(bis);
+            //application des filtres
+            bmp.appliesBlackWhiteFilter();
+            bmp.applies90DegreeRotation();
+            bmp.applies90DegreeRotation();
+            bmp.applies90DegreeRotation();
+            bmp.appliesGaussianFilter();
 
-            FileOutputStream fos = new FileOutputStream("rondoudou-COPY.bmp");
+            // ouverture du output stream pour écrire l'image
+            FileOutputStream fos = new FileOutputStream("IOFile/" + destination);
             BufferedOutputStream bos = new BufferedOutputStream(fos);
 
+            // écriture de l'image
             bmp.writeBMP(bos);
 
-            fis.close();
+            bos.flush();
+            bos.close();
+            bis.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

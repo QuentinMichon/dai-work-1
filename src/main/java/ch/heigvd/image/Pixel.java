@@ -11,12 +11,21 @@ public class Pixel {
         this.b = b;
     }
 
+    public Pixel copy() {
+        return new Pixel(r, g, b);
+    }
+
     public byte[] getRGB() {
         return new byte[]{this.b, this.g, this.r};
     }
 
-    public byte[] getBW() {
-        byte gray = (byte)((int)Math.floor((double)(0.299F * (float)this.r + 0.587F * (float)this.g + 0.114F * (float)this.b)));
-        return new byte[]{gray, gray, gray};
+
+    public Pixel getBWPixel() {
+        int intR = this.r & 0xFF;
+        int intG = this.g & 0xFF;
+        int intB = this.b & 0xFF;
+
+        byte gray = (byte)(Math.floor((double)(0.299F*intR + 0.587F*intG + 0.114F*intB)));
+        return new Pixel(gray, gray, gray);
     }
 }

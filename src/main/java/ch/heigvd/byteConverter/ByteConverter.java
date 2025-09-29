@@ -22,7 +22,7 @@ public abstract class ByteConverter {
                 ((bytes[1] & 0xFF) << 8)  |
                 (bytes[0] & 0xFF);
 
-        System.out.println("Valeur lue (little endian) : " + value);
+        //System.out.println("Valeur lue (little endian) : " + value);
         return value;
     }
 
@@ -37,7 +37,7 @@ public abstract class ByteConverter {
         // Assembler les octets en little endian
         char value = (char) (((bytes[1] & 0xFF) << 8) | (bytes[0] & 0xFF));
 
-        System.out.println("Valeur lue (little endian) : " + (int) value);
+        //System.out.println("Valeur lue (little endian) : " + (int) value);
         return value;
     }
 
@@ -51,7 +51,7 @@ public abstract class ByteConverter {
 
         // Assembler les octets en little endian
         Pixel pixel = new Pixel(bytes[2], bytes[1], bytes[0]);
-        System.out.println("R:" + (bytes[2] & 0xFF) + " G:" + (bytes[1] & 0xFF) + " B:" + (bytes[0] & 0xFF));
+        //System.out.println("R:" + (bytes[2] & 0xFF) + " G:" + (bytes[1] & 0xFF) + " B:" + (bytes[0] & 0xFF));
         return pixel;
     }
 
