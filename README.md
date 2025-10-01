@@ -128,6 +128,8 @@ rondoudou-bw.bmp \
 filter -f=BLACK_WHITE
 ```
 
+<img src="gitImage/rondoudouBW.png">
+
 #### Rotation
 Utilisez la commande **rotation** pour appliquer une rotation de sens horaire à l'image. Puis, choisir une des options avec -r
 (ROTATE_90, ROTATE_180, ROTATE_270).
@@ -138,6 +140,8 @@ rondoudou.bmp \
 rondoudou-180.bmp \
 rotation -r=ROTATE_180
 ```
+
+<img src="gitImage/rondoudou180.png">
 
 ## Auteurs
 - Quentin Michon
