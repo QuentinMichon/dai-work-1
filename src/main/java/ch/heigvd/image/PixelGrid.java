@@ -1,9 +1,9 @@
 package ch.heigvd.image;
 
 public class PixelGrid {
-    private int width;
-    private int height;
-    private Pixel[][] pixels;
+    private final int width;
+    private final int height;
+    private final Pixel[][] pixels;
 
     final private int[] kernel = {1,2,1,2,4,2,1,2,1};
     final private int[] yShift = {1,1,1,0,0,0,-1,-1,-1};

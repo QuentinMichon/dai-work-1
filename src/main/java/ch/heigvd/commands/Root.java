@@ -4,10 +4,7 @@ package ch.heigvd.commands;
 import ch.heigvd.image.BMP;
 import picocli.CommandLine;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 
 @CommandLine.Command(
         description = "Un CLI qui permet de faire du traitement d'image au format BMP v3 24bits",
@@ -19,29 +16,27 @@ import java.io.FileOutputStream;
 public class Root implements Runnable {
     @Override
     public void run() {
-        System.out.println("Duplication du fichier source\n");
+        System.out.println("Duplication du fichier source...");
 
-        try {
-            FileInputStream fis =  new FileInputStream("IOFile/" + source);
+        try(FileInputStream fis =  new FileInputStream("IOFile/" + source);
             BufferedInputStream bis = new BufferedInputStream(fis);
+            FileOutputStream fos = new FileOutputStream("IOFile/" + destination);
+            BufferedOutputStream bos = new BufferedOutputStream(fos)) {
 
             BMP bmp = new BMP(bis);
-
-            FileOutputStream fos = new FileOutputStream("IOFile/" + destination);
-            BufferedOutputStream bos = new BufferedOutputStream(fos);
-
             bmp.writeBMP(bos);
 
-            fis.close();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("Votre nouvelle image à bien été générée : IOFile/" + destination);
+
+        } catch (IOException e) {
+            System.out.println("Erreur durant l'ouverture ou l'écriture du fichier : " + e);
         }
     }
 
-    @CommandLine.Parameters(index = "0", description = "Nom du fichier source.")
+    @CommandLine.Parameters(index = "0", description = "Nom du fichier source (.bmp).")
     protected String source;
 
-    @CommandLine.Parameters(index = "1", description = "Nom du nouveau fichier.")
+    @CommandLine.Parameters(index = "1", description = "Nom du nouveau fichier (.bmp).")
     protected String destination;
 
 

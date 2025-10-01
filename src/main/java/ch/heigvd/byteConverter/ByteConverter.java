@@ -4,7 +4,6 @@ import ch.heigvd.image.Pixel;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 public abstract class ByteConverter {
@@ -56,13 +55,9 @@ public abstract class ByteConverter {
     }
 
     // use to pass [nb] of bite
-    public static void pass(BufferedInputStream bis, int nb) {
-        try {
-            for (int i = 0; i < nb; i++) {
-                bis.read();
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+    public static void pass(BufferedInputStream bis, int nb) throws IOException {
+        for (int i = 0; i < nb; i++) {
+            bis.read();
         }
     }
 

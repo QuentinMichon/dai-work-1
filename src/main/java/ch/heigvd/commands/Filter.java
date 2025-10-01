@@ -3,11 +3,7 @@ package ch.heigvd.commands;
 
 import ch.heigvd.image.BMP;
 import picocli.CommandLine;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 
 @CommandLine.Command(name = "filter", description = "Applique un filtre à l'image")
 public class Filter implements Runnable {
@@ -15,10 +11,13 @@ public class Filter implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("Ouverture du fichier source...");
 
-        try {
-            FileInputStream fis = new FileInputStream("IOFile/" + parent.source);
+        try(FileInputStream fis = new FileInputStream("IOFile/" + parent.source);
             BufferedInputStream bis = new BufferedInputStream(fis);
+            FileOutputStream fos = new FileOutputStream("IOFile/" + parent.destination);
+            BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+
             BMP bmp = new BMP(bis);
 
             // traitement sur l'image
@@ -34,8 +33,6 @@ public class Filter implements Runnable {
                 }
             }
             //----------------------------------------------
-            FileOutputStream fos = new FileOutputStream("IOFile/" + parent.destination);
-            BufferedOutputStream bos = new BufferedOutputStream(fos);
 
             bmp.writeBMP(bos);
 
@@ -43,9 +40,9 @@ public class Filter implements Runnable {
 
             bos.flush();
             bos.close();
-            fis.close();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            bis.close();
+        } catch (IOException e) {
+            System.out.println("Erreur durant l'ouverture ou l'écriture du fichier : " + e);
         }
     }
 
