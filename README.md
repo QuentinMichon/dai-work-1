@@ -1,4 +1,6 @@
 # DAI WORK 1 - éditeur de fichier BMP
+![Static Badge](https://img.shields.io/badge/HEIG--VD-labo-red?logo=intellijidea)
+
 
 ## Introduction
 L'objectif de cette application en ligne de commande (CLI) est de lire un fichier .bmp et d'y appliquer une transformation (filtre ou rotation) puis de l'écrire dans un nouveau fichier. 

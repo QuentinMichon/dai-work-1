@@ -1,5 +1,6 @@
 package ch.heigvd.commands;
 
+import ch.heigvd.AvailableRotation;
 import ch.heigvd.image.BMP;
 import picocli.CommandLine;
 
@@ -21,20 +22,7 @@ public class Rotation implements Runnable {
             BMP bmp = new BMP(bis);
             // traitement sur l'image
             //----------------------------------------------
-            switch (rotation) {
-                case ROTATE_90:
-                    bmp.applies90DegreeRotation();
-                    break;
-                case ROTATE_180:
-                    bmp.applies90DegreeRotation();
-                    bmp.applies90DegreeRotation();
-                    break;
-                case ROTATE_270:
-                    bmp.applies90DegreeRotation();
-                    bmp.applies90DegreeRotation();
-                    bmp.applies90DegreeRotation();
-                    break;
-            }
+            bmp.appliesRotation(rotation);
             //----------------------------------------------
 
             bmp.writeBMP(bos);
@@ -47,12 +35,6 @@ public class Rotation implements Runnable {
         } catch (IOException e) {
             System.out.println("Erreur durant l'ouverture ou l'écriture du fichier : " + e);
         }
-    }
-
-    public enum AvailableRotation {
-        ROTATE_90,
-        ROTATE_180,
-        ROTATE_270,
     }
 
     @CommandLine.Option(
