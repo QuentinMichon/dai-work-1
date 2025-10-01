@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="run copy" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="ch.heigvd.Main" />
+    <module name="work-1-BMP-cli" />
+    <option name="PROGRAM_PARAMETERS" value="rondoudou.bmp rondoudou-copy.bmp" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="ch.heigvd.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

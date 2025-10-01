@@ -10,6 +10,9 @@
 *.iml
 *.ipr
 
+# Copilot (IntelliJ plugin)
+.idea/copilot.*
+
 # Editor-based HTTP Client requests
 .idea/httpRequests/
 
@@ -27,6 +30,8 @@
 
 ## Maven
 target/
+# Maven Shade plugin
+dependency-reduced-pom.xml
 
 ## Windows
 # Windows thumbnail cache files
@@ -34,3 +39,11 @@ Thumbs.db
 
 # Folder config file
 [Dd]esktop.ini
+
+## IOFiles
+#output
+IOFile/*
+#input (to keep)
+!IOFile/rondoudou.bmp
+!IOFile/pokeball.bmp
+!IOFile/salameche.bmp
