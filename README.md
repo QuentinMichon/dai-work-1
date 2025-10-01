@@ -26,26 +26,41 @@ Rentrer dans le dossier racine
 cd work-1-BMP-cli/
 ```
 
-Ensuite, vous pouvez run la config **Package application as JAR file** afin de tout mettre en place de manière automatique.
+#### Pour Linux / MacOS
+Télécharger les dépendances 
+```sh
+./mvnw dependency:go-offline
+```
+Générer une archive JAR
+```sh
+./mvnw package
+```
 
-> [!CAUTION]
+#### Pour Windows
+Télécharger les dépendances
+```sh
+./mvnw.cmd dependency:go-offline
+```
+Générer une archive JAR
+```sh
+./mvnw.cmd package
+```
+
+> [!NOTE]
 > 
-> Nous utilisons l'IDE Intellij IDEA comment environnement de développement
+> Si vous utilisez l'IDE Intellij IDEA, vous pouvez run la configuration **Package application as JAR file** afin d'automatisation la création de l'archive.
 
 ## Utilisation
 
 ### Contexte
-Le programme va lire et écrire les images dans le dossier [IOFile/](IOFile). Trois images vous sont fourni afin de faire des
-essais :
+Le programme va lire et écrire les images dans le dossier [IOFile/](IOFile). Trois images vous sont fournies afin de faire des tests :
 - rondoudou.bmp
 - pokeball.bmp
 - salameche.bmp
 
 >[!CAUTION]
 > 
-> Afin de lire une image, il est obligé de placer l'image dans le dossier [IOFile/](IOFile).
-
-L'exécutable se trouve dans le dossier [targer/](target/work-1-BMP-cli-1.0-SNAPSHOT.jar). Ouvrez un terminal dans ce dossier pour lancer les commandes suivantes.
+> Afin de lire une image, il est obligé de placer l'image dans le dossier [IOFile/](IOFile) et qu'elle soit au bon format (voir ci-dessous).
 
 ### Version du fichier
 Le programme peut gérer qu'un type de fichier avec les caractéristiques suivantes : 
@@ -90,6 +105,8 @@ magick rondoudou.png -background white -alpha remove -alpha off -type TrueColor 
 > Avec cette commande, même si l'arrière-plan est transparent, il sera remplacé par un fond blanc.
 
 ### Exemple d'utilisation
+L'archive .jar se trouve dans le fichier [target/](target/work-1-BMP-cli-1.0-SNAPSHOT.jar). Ouvrez un terminal dans ce dossier afin de pouvoir exécuter les commandes suivantes.
+
 #### Copier-coller
 Le programme de base permet de copier-coller une image. Le premier paramètre est le nom du fichier source et le deuxième le nom du fichier de destination.
 
