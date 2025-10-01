@@ -65,6 +65,7 @@ sudo apt install imagemagick
 convert --version
 ```
 3) Convertir l'image PNG en BMP
+
 ```sh
 convert rondoudou.png -background white -alpha remove -alpha off -type TrueColor +profile "*" BMP3:rondoudou.bmp
 ```
@@ -72,13 +73,15 @@ convert rondoudou.png -background white -alpha remove -alpha off -type TrueColor
 #### Windows
 1) Télécharger le binaire officiel : ImageMagick Download
 <img src="gitImage/ImageMagickWindows.png">
+
 2) Pendant l’installation, cocher l’option "Add application directory to your system path" pour pouvoir utiliser magick dans l’invite de commande.
+
 3) Verifier l'installation
 ```sh
 magick -version
 ```
 4) Convertir l'image PNG en BMP
-```powershell
+```
 magick rondoudou.png -background white -alpha remove -alpha off -type TrueColor +profile "*" BMP3:rondoudou.bmp
 ```
 
