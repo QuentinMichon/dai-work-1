@@ -35,7 +35,7 @@ Télécharger les dépendances
 ```
 Générer une archive JAR
 ```sh
-./mvnw package
+./mvnw clean package
 ```
 
 #### Pour Windows
@@ -45,7 +45,7 @@ Télécharger les dépendances
 ```
 Générer une archive JAR
 ```sh
-./mvnw.cmd package
+./mvnw.cmd clean package
 ```
 
 > [!NOTE]

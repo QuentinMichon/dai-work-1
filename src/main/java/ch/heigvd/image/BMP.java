@@ -46,7 +46,7 @@ public class BMP {
      * Lit successivement l’en-tête BMP, l’en-tête DIB, puis tous les pixels
      * en respectant le padding de fin de ligne.
      *
-     * <p><b>Effet de bord :</b> le flux d’entrée est fermé à la fin.</p>
+     * Le flux d’entrée est fermé à la fin.
      *
      * @param bis flux binaire tamponné en entrée (positionné au début du fichier BMP)
      * @throws IOException si une lecture échoue ou si les octets attendus ne peuvent pas être lus
@@ -87,7 +87,7 @@ public class BMP {
     /**
      * Écrit l’image BMP (en-têtes + pixels + padding) dans un flux de sortie.
      *
-     * <p><b>Effet de bord :</b> le flux de sortie est flush puis fermé.</p>
+     * Le flux de sortie est flush puis fermé.</p>
      *
      * @param bos flux binaire tamponné en sortie (ouvert en écriture)
      * @throws IOException si l’écriture échoue
