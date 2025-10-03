@@ -1,3 +1,13 @@
+/**
+ * @file : Rotation.java
+ * @author : Quentin Michon, Gianni BEE
+ * @date : 2025-09-29
+ * @since : 2.0
+ *
+ * Description:
+ *   Sous-commande CLI pour appliquer une rotation sur une image BMP.
+ */
+
 package ch.heigvd.commands;
 
 import ch.heigvd.AvailableRotation;
