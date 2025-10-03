@@ -12,7 +12,7 @@ import java.io.IOException;
  * Cette classe lit et écrit l’en-tête BMP ainsi que la matrice de pixels associée,
  * et fournit quelques transformations (niveaux de gris, flou gaussien, rotations).
  *
- * <p>Convention d’octets : toutes les valeurs sont lues/écrites en Little-endian.</p>
+ * Convention d’octets : toutes les valeurs sont lues/écrites en Little-endian.
  */
 public class BMP {
     //---------------------
