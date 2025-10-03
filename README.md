@@ -1,9 +1,11 @@
 # DAI WORK 1 - éditeur de fichier BMP
 ![Static Badge](https://img.shields.io/badge/HEIG--VD-labo-red?logo=intellijidea)
+![Maven](https://img.shields.io/badge/build-Maven-blue?logo=apachemaven)
+![Java](https://img.shields.io/badge/java-21-orange?logo=openjdk)
 
 
 ## Introduction
-L'objectif de cette application en ligne de commande (CLI) est de lire un fichier .bmp et d'y appliquer une transformation (filtre ou rotation) puis de l'écrire dans un nouveau fichier. 
+Cette application en ligne de commande (CLI) permet de lire une image au format .bmp, de lui appliquer une transformation (filtre ou rotation), puis de l’enregistrer dans un nouveau fichier.
 
 ## Table des matières
 - [Introduction](#introduction)
@@ -16,7 +18,7 @@ L'objectif de cette application en ligne de commande (CLI) est de lire un fichie
 - [Auteurs](#auteurs)
 
 ## Clone et Build
-Les étapes suivantes vous permettent de clôner et build le projet afin de pouvoir commencer à l'utiliser. Nous utilisons Maven comme gestionnaire de projet.
+Les étapes suivantes vous permettent de cloner et build le projet afin de pouvoir commencer à l'utiliser. Nous utilisons Maven comme gestionnaire de projet.
 
 Cloner le repo
 ```
@@ -50,7 +52,7 @@ Générer une archive JAR
 
 > [!NOTE]
 > 
-> Si vous utilisez l'IDE Intellij IDEA, vous pouvez run la configuration **Package application as JAR file** afin d'automatisation la création de l'archive.
+> Si vous utilisez l'IDE Intellij IDEA, vous pouvez run la configuration **Package application as JAR file** afin d'automatiser la création de l'archive.
 
 ## Utilisation
 
@@ -62,7 +64,7 @@ Le programme va lire et écrire les images dans le dossier [IOFile/](IOFile). Tr
 
 >[!CAUTION]
 > 
-> Afin de lire une image, il est obligé de placer l'image dans le dossier [IOFile/](IOFile) et qu'elle soit au bon format (voir ci-dessous).
+> Afin de lire une image, il faut placer l'image dans le dossier [IOFile/](IOFile) et qu'elle soit au format supporté (voir ci-dessous).
 
 ### Version du fichier
 Le programme peut gérer qu'un type de fichier avec les caractéristiques suivantes : 
@@ -70,14 +72,14 @@ Le programme peut gérer qu'un type de fichier avec les caractéristiques suivan
 - Colorspace : sRGB
 - Depth : 8-bits (par canal)
 
-Afin de s'assurer la bonne compatibilité des fichiers utilisé, vous pouvez suivre les étapes suivante pour convertir une image .png en .bmp utilisable par le programme.
+Pour s'assurer de la bonne compatibilité des fichiers utilisés, vous pouvez suivre les étapes suivantes pour convertir une image .png en .bmp utilisable par le programme.
 
 #### Linux / MacOS
 1) Installer ImageMagick
 ```sh
 sudo apt install imagemagick 
 ```
-2) Verifier l'installation
+2) Vérifier l'installation
 ```sh
 convert --version
 ```
@@ -93,7 +95,7 @@ convert rondoudou.png -background white -alpha remove -alpha off -type TrueColor
 
 2) Pendant l’installation, cocher l’option "Add application directory to your system path" pour pouvoir utiliser magick dans l’invite de commande.
 
-3) Verifier l'installation
+3) Vérifier l'installation
 ```sh
 magick -version
 ```
@@ -104,10 +106,16 @@ magick rondoudou.png -background white -alpha remove -alpha off -type TrueColor 
 
 >[!NOTE]
 > 
-> Avec cette commande, même si l'arrière-plan est transparent, il sera remplacé par un fond blanc.
+> Cette commande remplace un fond transparent par un fond blanc.
 
 ### Exemple d'utilisation
 L'archive .jar se trouve dans le fichier [target/](target/work-1-BMP-cli-1.0-SNAPSHOT.jar). Ouvrez un terminal dans ce dossier afin de pouvoir exécuter les commandes suivantes.
+
+### Commandes disponibles
+- [**Copie simple**](#Copier-coller) : copie le fichier source vers un nouveau fichier.
+- [**Filter**](#Filtre) : applique un filtre (-f est obligatoire).
+- [**Rotation**](#Rotation) : applique une rotation (-r est obligatoire).
+
 
 #### Copier-coller
 Le programme de base permet de copier-coller une image. Le premier paramètre est le nom du fichier source et le deuxième le nom du fichier de destination.
@@ -118,8 +126,7 @@ rondoudou.bmp \
 rondoudou-copy.bmp
 ```
 #### Filtre
-Utilisez la commande **filter** pour appliquer un filtre à l'image. 
-Puis, choisir une des options avec -f (BLACK_WHITE ou GAUSSIAN).
+La commande **filter** applique un filtre à l'image. L'option -f est obligatoire et permet de choisir le type de filtre (BLACK_WHITE ou GAUSSIAN).
 
 ```sh
 java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
@@ -131,8 +138,7 @@ filter -f=BLACK_WHITE
 <img src="gitImage/rondoudouBW.png">
 
 #### Rotation
-Utilisez la commande **rotation** pour appliquer une rotation de sens horaire à l'image. Puis, choisir une des options avec -r
-(ROTATE_90, ROTATE_180, ROTATE_270).
+La commande rotation applique une rotation de l’image dans le sens horaire. L’option -r est obligatoire et permet de choisir l’angle (ROTATE_90, ROTATE_180, ROTATE_270).
 
 ```sh
 java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
@@ -144,5 +150,7 @@ rotation -r=ROTATE_180
 <img src="gitImage/rondoudou180.png">
 
 ## Auteurs
-- Quentin Michon
-- Gianni Bee
+- [Quentin Michon](https://github.com/QuentinMichon)
+- [Gianni Bee](https://github.com/GinByte)
+
+Avec l’aide de Copilot pour la rédaction des en-têtes de fonctions.
