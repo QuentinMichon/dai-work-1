@@ -44,7 +44,9 @@ public class Pixel {
     /**
      * Génère une version en niveaux de gris (noir et blanc) du pixel.
      * La conversion utilise la formule de luminosité standard :
-     * gray = 0.299 * R + 0.587 * G + 0.114 * B
+     * gray = 0.3 * R + 0.59 * G + 0.11 * B
+     *
+     * source : https://stackoverflow.com/questions/17615963/standard-rgb-to-grayscale-conversion
      *
      * @return un nouveau pixel dont les trois composantes sont égales au niveau de gris calculé
      */

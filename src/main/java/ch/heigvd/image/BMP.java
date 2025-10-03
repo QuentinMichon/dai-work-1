@@ -87,7 +87,7 @@ public class BMP {
     /**
      * Écrit l’image BMP (en-têtes + pixels + padding) dans un flux de sortie.
      *
-     * Le flux de sortie est flush puis fermé.</p>
+     * Le flux de sortie est flush puis fermé.
      *
      * @param bos flux binaire tamponné en sortie (ouvert en écriture)
      * @throws IOException si l’écriture échoue

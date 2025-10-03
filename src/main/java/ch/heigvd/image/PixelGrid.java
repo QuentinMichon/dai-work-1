@@ -24,6 +24,9 @@ public class PixelGrid {
      * @param width  largeur (nombre de colonnes)
      */
     public PixelGrid(int height, int width) {
+        if(height < 0 || width < 0) {
+            throw new IllegalArgumentException("Argument invalid pour height ou width : valeur négative impossible");
+        }
         this.width = width;
         this.height = height;
         pixels = new Pixel[height][width];
