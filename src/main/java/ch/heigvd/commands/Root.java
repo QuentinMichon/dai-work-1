@@ -1,3 +1,14 @@
+/**
+ * @file : Root.java
+ * @author : Quentin Michon, Gianni BEE
+ * @date : 2025-09-29
+ * @since : 1.0
+ *
+ * Description:
+ *   Commande principale CLI pour traiter des images BMP v3 24 bits.
+ *   Par défaut, elle duplique un fichier BMP source.
+ */
+
 package ch.heigvd.commands;
 
 import ch.heigvd.image.BMP;

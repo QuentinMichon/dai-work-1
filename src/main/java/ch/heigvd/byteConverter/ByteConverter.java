@@ -1,3 +1,14 @@
+/**
+ * @file : ByteConverter.java
+ * @author : Quentin Michon, Gianni BEE
+ * @date : 2025-09-26
+ * @since : 1.0
+ *
+ * Description:
+ *   Utilitaire pour la lecture et l’écriture de données binaires
+ *   en encodage Little-endian.
+ */
+
 package ch.heigvd.byteConverter;
 
 import ch.heigvd.image.Pixel;
