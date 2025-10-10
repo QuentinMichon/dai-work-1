@@ -2,7 +2,7 @@
   <configuration default="false" name="run rotation 180" type="Application" factoryName="Application" folderName="Rotation">
     <option name="MAIN_CLASS_NAME" value="ch.heigvd.Main" />
     <module name="work-1-BMP-cli" />
-    <option name="PROGRAM_PARAMETERS" value="rondoudou.bmp rondoudou-180.bmp rotation -r=ROTATE_180" />
+    <option name="PROGRAM_PARAMETERS" value="IOFile/rondoudou.bmp IOFile/rondoudou-180.bmp rotation -r=ROTATE_180" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="ch.heigvd.*" />
