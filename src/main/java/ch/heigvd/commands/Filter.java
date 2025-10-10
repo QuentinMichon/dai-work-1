@@ -67,6 +67,7 @@ public class Filter implements Runnable {
                 System.out.println("Application du filtre noir et blanc...");
                 bmp.appliesBlackWhiteFilter();
             }
+            default -> System.out.println("Nom du filtre inconnu...");
         }
     }
 

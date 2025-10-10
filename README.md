@@ -57,14 +57,14 @@ Générer une archive JAR
 ## Utilisation
 
 ### Contexte
-Le programme va lire et écrire les images dans le dossier [IOFile/](IOFile). Trois images vous sont fournies afin de faire des tests :
+Le programme va lire une image au format .bmp puis y appliquer les transformations demandée. Pour finir, il écrit la nouvelle image dans un nouveau fichier. Trois images vous sont fournies afin de faire des tests :
 - rondoudou.bmp
 - pokeball.bmp
 - salameche.bmp
 
 >[!CAUTION]
 > 
-> Afin de lire une image, il faut placer l'image dans le dossier [IOFile/](IOFile) et qu'elle soit au format supporté (voir ci-dessous).
+> Si vous utilisez l'IDE Intellij IDEA, vous trouverez des configurations d'exécution pour tester simplement les différentes fonctionnalités. Les images sont écrites et lues dans le dossier [IOFile](IOFile).
 
 ### Version du fichier
 Le programme peut gérer qu'un type de fichier avec les caractéristiques suivantes : 
@@ -120,18 +120,18 @@ L'archive .jar se trouve dans le fichier [target/](target/work-1-BMP-cli-1.0-SNA
 #### Copier-coller
 Le programme de base permet de copier-coller une image. Le premier paramètre est le nom du fichier source et le deuxième le nom du fichier de destination.
 
-```sh
+```
 java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
-rondoudou.bmp \
-rondoudou-copy.bmp
+/chemin/vers/rondoudou.bmp \
+/chemin/vers/rondoudou-copy.bmp
 ```
 #### Filtre
 La commande **filter** applique un filtre à l'image. L'option -f est obligatoire et permet de choisir le type de filtre (BLACK_WHITE ou GAUSSIAN).
 
-```sh
+```
 java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
-rondoudou.bmp \
-rondoudou-bw.bmp \
+/chemin/vers/rondoudou.bmp \
+/chemin/vers/rondoudou-bw.bmp \
 filter -f=BLACK_WHITE
 ```
 
@@ -140,10 +140,10 @@ filter -f=BLACK_WHITE
 #### Rotation
 La commande rotation applique une rotation de l’image dans le sens horaire. L’option -r est obligatoire et permet de choisir l’angle (ROTATE_90, ROTATE_180, ROTATE_270).
 
-```sh
+```
 java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
-rondoudou.bmp \
-rondoudou-180.bmp \
+/chemin/vers/rondoudou.bmp \
+/chemin/vers/rondoudou-180.bmp \
 rotation -r=ROTATE_180
 ```
 
