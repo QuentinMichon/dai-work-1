@@ -2,7 +2,7 @@
   <configuration default="false" name="run filter BW" type="Application" factoryName="Application" folderName="Filter">
     <option name="MAIN_CLASS_NAME" value="ch.heigvd.Main" />
     <module name="work-1-BMP-cli" />
-    <option name="PROGRAM_PARAMETERS" value="rondoudou.bmp rondoudou-bw.bmp filter -f=BLACK_WHITE" />
+    <option name="PROGRAM_PARAMETERS" value="IOFile/rondoudou.bmp IOFile/rondoudou-bw.bmp filter -f=BLACK_WHITE" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="ch.heigvd.*" />

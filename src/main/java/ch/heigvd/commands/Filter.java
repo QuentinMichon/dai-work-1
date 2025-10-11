@@ -14,6 +14,7 @@ package ch.heigvd.commands;
 import ch.heigvd.image.BMP;
 import picocli.CommandLine;
 import java.io.*;
+import java.util.function.Consumer;
 
 /**
  * Sous-commande "filter".
@@ -33,34 +34,9 @@ public class Filter implements Runnable {
      */
     @Override
     public void run() {
-        System.out.println("Ouverture du fichier source...");
+        System.out.println("Application d'un filtre sur fichier source...");
 
-        try (FileInputStream fis = new FileInputStream("IOFile/" + parent.source);
-             BufferedInputStream bis = new BufferedInputStream(fis);
-             FileOutputStream fos = new FileOutputStream("IOFile/" + parent.destination);
-             BufferedOutputStream bos = new BufferedOutputStream(fos)) {
-
-            BMP bmp = new BMP(bis);
-
-            // Application du filtre choisi
-            switch (filter) {
-                case GAUSSIAN -> {
-                    System.out.println("Application du filtre gaussien...");
-                    bmp.appliesGaussianFilter();
-                }
-                case BLACK_WHITE -> {
-                    System.out.println("Application du filtre noir et blanc...");
-                    bmp.appliesBlackWhiteFilter();
-                }
-            }
-
-            bmp.writeBMP(bos);
-
-            System.out.println("Votre nouvelle image a bien été générée : IOFile/" + parent.destination);
-
-        } catch (IOException e) {
-            System.out.println("Erreur durant l'ouverture ou l'écriture du fichier : " + e);
-        }
+        parent.openAndAppliesModifier(appliesFilter);
     }
 
     /**
@@ -80,4 +56,20 @@ public class Filter implements Runnable {
             description = "Filtre à appliquer (valeurs possibles: ${COMPLETION-CANDIDATES})",
             required = true)
     protected AvailableFilter filter;
+
+    private void appliesFilter(BMP bmp) {
+        switch (filter) {
+            case GAUSSIAN -> {
+                System.out.println("Application du filtre gaussien...");
+                bmp.appliesGaussianFilter();
+            }
+            case BLACK_WHITE -> {
+                System.out.println("Application du filtre noir et blanc...");
+                bmp.appliesBlackWhiteFilter();
+            }
+            default -> System.out.println("Nom du filtre inconnu...");
+        }
+    }
+
+    private final Consumer<BMP> appliesFilter = this::appliesFilter;
 }

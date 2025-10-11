@@ -15,6 +15,8 @@ import ch.heigvd.image.BMP;
 import picocli.CommandLine;
 
 import java.io.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * Commande principale du programme.
@@ -41,26 +43,14 @@ public class Root implements Runnable {
     public void run() {
         System.out.println("Duplication du fichier source...");
 
-        try (FileInputStream fis = new FileInputStream("IOFile/" + source);
-             BufferedInputStream bis = new BufferedInputStream(fis);
-             FileOutputStream fos = new FileOutputStream("IOFile/" + destination);
-             BufferedOutputStream bos = new BufferedOutputStream(fos)) {
-
-            BMP bmp = new BMP(bis);
-            bmp.writeBMP(bos);
-
-            System.out.println("Votre nouvelle image a bien été générée : IOFile/" + destination);
-
-        } catch (IOException e) {
-            System.out.println("Erreur durant l'ouverture ou l'écriture du fichier : " + e);
-        }
+        openAndAppliesModifier(null);
     }
 
     /**
      * Nom du fichier source BMP.
      * Premier argument obligatoire de la commande.
      */
-    @CommandLine.Parameters(index = "0", description = "Nom du fichier source (.bmp).")
+    @CommandLine.Parameters(index = "0", description = "Chemin du fichier source (.bmp).")
     protected String source;
 
     /**
@@ -68,6 +58,38 @@ public class Root implements Runnable {
      * Deuxième argument obligatoire de la commande.
      * Le fichier est créé dans le dossier IOFile/.
      */
-    @CommandLine.Parameters(index = "1", description = "Nom du nouveau fichier (.bmp).")
+    @CommandLine.Parameters(index = "1", description = "Chemin du nouveau fichier (.bmp).")
     protected String destination;
-}
+
+    protected void openAndAppliesModifier(Consumer<BMP> f) {
+        if(!(destination.toLowerCase().endsWith(".bmp"))) {
+            destination += ".bmp";
+            System.out.println("Ajout de l'extension .bmp pour le fichier destination...\nNew path : " + source);
+        }
+
+        if(!(source.toLowerCase().endsWith(".bmp"))) {
+            source += ".bmp";
+            System.out.println("Ajout de l'extension .bmp pour le fichier source..\nNew path : " + source);
+        }
+
+        try (FileInputStream fis = new FileInputStream(source);
+             BufferedInputStream bis = new BufferedInputStream(fis);
+             FileOutputStream fos = new FileOutputStream(destination);
+             BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+
+            BMP bmp = new BMP(bis);
+
+            // filter application
+            if(f != null) {
+                f.accept(bmp);
+            }
+
+            bmp.writeBMP(bos);
+
+            System.out.println("Votre nouvelle image a bien été générée : /" + destination);
+
+        } catch (IOException e) {
+            System.out.println("Erreur durant l'ouverture ou l'écriture du fichier : " + e);
+        }
+    }
+ }
