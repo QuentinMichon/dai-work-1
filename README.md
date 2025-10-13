@@ -139,7 +139,15 @@ java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
 filter -f=BLACK_WHITE
 ```
 
-<img src="gitImage/rondoudouBW.png">
+```
+java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
+/chemin/vers/rondoudou.bmp \
+/chemin/vers/rondoudou-gau.bmp \
+filter -f=GAUSSIAN
+```
+
+
+<img src="gitImage/rondoudouBWGAU.png">
 
 #### Rotation
 La commande rotation applique une rotation de l’image dans le sens horaire. L’option -r est obligatoire et permet de choisir l’angle (ROTATE_90, ROTATE_180, ROTATE_270).
