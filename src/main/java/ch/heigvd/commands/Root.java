@@ -64,7 +64,7 @@ public class Root implements Runnable {
     protected void openAndAppliesModifier(Consumer<BMP> f) {
         if(!(destination.toLowerCase().endsWith(".bmp"))) {
             destination += ".bmp";
-            System.out.println("Ajout de l'extension .bmp pour le fichier destination...\nNew path : " + source);
+            System.out.println("Ajout de l'extension .bmp pour le fichier destination...\nNew path : " + destination);
         }
 
         if(!(source.toLowerCase().endsWith(".bmp"))) {
