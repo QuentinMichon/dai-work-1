@@ -108,7 +108,7 @@ magick rondoudou.png -background white -alpha remove -alpha off -type TrueColor 
 > 
 > Cette commande remplace un fond transparent par un fond blanc.
 
->[!HINT]
+>[!NOTE]
 > 
 > Vous trouverez une [image](IOFile/rondoudou.png) au format .png pour tester la conversion au format .bmp
 
