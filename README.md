@@ -108,10 +108,14 @@ magick rondoudou.png -background white -alpha remove -alpha off -type TrueColor 
 > 
 > Cette commande remplace un fond transparent par un fond blanc.
 
+>[!HINT]
+> 
+> Vous trouverez une [image](IOFile/rondoudou.png) au format .png pour tester la conversion au format .bmp
+
 ### Exemple d'utilisation
 L'archive .jar se trouve dans le fichier [target/](target/work-1-BMP-cli-1.0-SNAPSHOT.jar). Ouvrez un terminal dans ce dossier afin de pouvoir exécuter les commandes suivantes.
 
-### Commandes disponibles
+#### Commandes disponibles
 - [**Copie simple**](#Copier-coller) : copie le fichier source vers un nouveau fichier.
 - [**Filter**](#Filtre) : applique un filtre (-f est obligatoire).
 - [**Rotation**](#Rotation) : applique une rotation (-r est obligatoire).
