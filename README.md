@@ -72,6 +72,8 @@ Le programme peut gérer qu'un type de fichier avec les caractéristiques suivan
 - Colorspace : sRGB
 - Depth : 8-bits (par canal)
 
+### Convertir un .png en .bmp
+
 Pour s'assurer de la bonne compatibilité des fichiers utilisés, vous pouvez suivre les étapes suivantes pour convertir une image .png en .bmp utilisable par le programme.
 
 #### Linux / MacOS
@@ -111,6 +113,17 @@ magick rondoudou.png -background white -alpha remove -alpha off -type TrueColor 
 >[!NOTE]
 > 
 > Vous trouverez une [image](IOFile/rondoudou.png) au format .png pour tester la conversion au format .bmp
+
+### convertir un .jpg en .bmp
+Avec convert (magic sous windows) il est également possible de convertir un .jpg en .bmp (pour l'installation et magic/convert, se référer aux premières étapes du [point précédent](#convertir-un-png-en-bmp)).
+
+#### Linux / MacOS 
+
+```convert /chemin/input.jpg -depth 8 -colorspace sRGB bmp3:/chemin/output.bmp```
+
+#### Windows
+
+```makick /chemin/input.jpg -depth 8 -colorspace sRGB bmp3:/chemin/output.bmp```
 
 ### Exemple d'utilisation
 L'archive .jar se trouve dans le fichier [target/](target/work-1-BMP-cli-1.0-SNAPSHOT.jar). Ouvrez un terminal dans ce dossier afin de pouvoir exécuter les commandes suivantes.
