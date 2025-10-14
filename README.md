@@ -14,7 +14,9 @@ Cette application en ligne de commande (CLI) permet de lire une image au format 
 - [Utilisation](#utilisation)
   - [Contexte](#contexte)
   - [Version du fichier](#version-du-fichier)
-  - [Exemple d'utilisation](#exemple-dutilisation)
+  - [Convertir un .png en .bmp](#convertir-un-png-en-bmp)
+  - [Convertir un .jpg en .bmp](#convertir-un-jpg-en-bmp)
+- [Exemple d'utilisation](#exemple-dutilisation)
 - [Auteurs](#auteurs)
 
 ## Clone et Build
@@ -125,7 +127,7 @@ Avec convert (magic sous windows) il est également possible de convertir un .jp
 
 ```makick /chemin/input.jpg -depth 8 -colorspace sRGB bmp3:/chemin/output.bmp```
 
-### Exemple d'utilisation
+## Exemple d'utilisation
 L'archive .jar se trouve dans le fichier [target/](target/work-1-BMP-cli-1.0-SNAPSHOT.jar). Ouvrez un terminal dans ce dossier afin de pouvoir exécuter les commandes suivantes.
 
 #### Commandes disponibles
