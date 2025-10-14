@@ -14,7 +14,9 @@ Cette application en ligne de commande (CLI) permet de lire une image au format 
 - [Utilisation](#utilisation)
   - [Contexte](#contexte)
   - [Version du fichier](#version-du-fichier)
-  - [Exemple d'utilisation](#exemple-dutilisation)
+  - [Convertir un .png en .bmp](#convertir-un-png-en-bmp)
+  - [Convertir un .jpg en .bmp](#convertir-un-jpg-en-bmp)
+- [Exemple d'utilisation](#exemple-dutilisation)
 - [Auteurs](#auteurs)
 
 ## Clone et Build
@@ -72,6 +74,8 @@ Le programme peut gérer qu'un type de fichier avec les caractéristiques suivan
 - Colorspace : sRGB
 - Depth : 8-bits (par canal)
 
+### Convertir un .png en .bmp
+
 Pour s'assurer de la bonne compatibilité des fichiers utilisés, vous pouvez suivre les étapes suivantes pour convertir une image .png en .bmp utilisable par le programme.
 
 #### Linux / MacOS
@@ -112,7 +116,18 @@ magick rondoudou.png -background white -alpha remove -alpha off -type TrueColor 
 > 
 > Vous trouverez une [image](IOFile/rondoudou.png) au format .png pour tester la conversion au format .bmp
 
-### Exemple d'utilisation
+### convertir un .jpg en .bmp
+Avec convert (magic sous windows) il est également possible de convertir un .jpg en .bmp (pour l'installation et magic/convert, se référer aux premières étapes du [point précédent](#convertir-un-png-en-bmp)).
+
+#### Linux / MacOS 
+
+```convert /chemin/input.jpg -depth 8 -colorspace sRGB bmp3:/chemin/output.bmp```
+
+#### Windows
+
+```makick /chemin/input.jpg -depth 8 -colorspace sRGB bmp3:/chemin/output.bmp```
+
+## Exemple d'utilisation
 L'archive .jar se trouve dans le fichier [target/](target/work-1-BMP-cli-1.0-SNAPSHOT.jar). Ouvrez un terminal dans ce dossier afin de pouvoir exécuter les commandes suivantes.
 
 #### Commandes disponibles
@@ -139,7 +154,15 @@ java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
 filter -f=BLACK_WHITE
 ```
 
-<img src="gitImage/rondoudouBW.png">
+```
+java -jar target/work-1-BMP-cli-1.0-SNAPSHOT.jar \
+/chemin/vers/rondoudou.bmp \
+/chemin/vers/rondoudou-gau.bmp \
+filter -f=GAUSSIAN
+```
+
+
+<img src="gitImage/rondoudouBWGAU.png">
 
 #### Rotation
 La commande rotation applique une rotation de l’image dans le sens horaire. L’option -r est obligatoire et permet de choisir l’angle (ROTATE_90, ROTATE_180, ROTATE_270).
